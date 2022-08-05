@@ -29,10 +29,10 @@ public class Task3 {
                 System.out.println("Friday");
                 break;
             case 6:
-                System.out.println("Saturday");
+                System.out.println("Weekend");
                 break;
             case 7:
-                System.out.println("Sunday");
+                System.out.println("Weekend");
                 break;
             default:
                 System.out.println("Error! Number is out of range");

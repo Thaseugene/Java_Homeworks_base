@@ -11,7 +11,7 @@ public class Task4 {
         int c = 1;
 
         if (a > b && b > c) {
-            System.out.println("Numbers from min to max: " + a + " " + b + " " + c);
+            System.out.println("Numbers from min to max: " + c + " " + b + " " + a);
         } else if (a > c && c > b) {
             System.out.println("Numbers from min to max: " + b + " " + c + " " + a);
         } else if (b > a && a > c) {

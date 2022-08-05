@@ -3,7 +3,7 @@ package by.itacademy.hw3;
 public class Task8 {
     public static void main(String[] args) {
 
-        int seconds = 0 + ((int) (Math.random() * 28800));
+        int seconds = (int) (Math.random() * 28800);
         //output for developer Петровй
         System.out.println("Осталось " + seconds);
 
