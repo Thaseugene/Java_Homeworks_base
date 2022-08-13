@@ -19,7 +19,10 @@ public class Task7 {
         for (int i = arr.length - 1; i >= 0; i--) {
             arrMirror[arr.length - 1 - i] = arr [i];
         }
-        System.out.println("Array after rotating : " + Arrays.toString(arrMirror));
+        for (int i = arr.length - 1; i >= 0; i--) {
+            arr[i] = arrMirror [i];
+        }
+        System.out.println("Array after rotating : " + Arrays.toString(arr));
 
     }
 
