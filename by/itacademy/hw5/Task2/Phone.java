@@ -1,4 +1,4 @@
-package by.itacademy.hw5;
+package by.itacademy.hw5.Task2;
 
 public class Phone {
 
