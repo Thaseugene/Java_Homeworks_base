@@ -17,7 +17,7 @@ public class Task7 {
         System.out.println("Wrapper Double to primitive short: " + doubleTwo +" -> "+ doubleTwo.shortValue());
         System.out.println("Wrapper Double to primitive int: " + doubleThree +" -> "+ doubleThree.intValue());
         System.out.println("Wrapper Double to primitive long: " + doubleFour +" -> "+ doubleFour.longValue());
-        System.out.println("Wrapper Double to primitive long: " + doubleOne +" -> "+ doubleOne.doubleValue());
+        System.out.println("Wrapper Double to primitive double: " + doubleOne +" -> "+ doubleOne.doubleValue());
 
         //Task case 4
         System.out.println("doubleOne = " + doubleOne);
