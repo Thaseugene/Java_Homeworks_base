@@ -7,9 +7,6 @@ public class Student {
     private String groupNumber;
     private double averagePoint;
 
-    public Student() {
-    }
-
     public Student(String name, String surname, String groupNumber, double averagePoint) {
         this.name = name;
         this.surname = surname;
