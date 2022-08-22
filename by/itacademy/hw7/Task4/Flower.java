@@ -24,24 +24,40 @@ abstract class Flower {
         return height;
     }
 
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getCost() {
         return cost;
     }
 
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
     public int getLifeTime() {
         return lifeTime;
     }
 
-    private void setCost(double cost) {
-        this.cost = cost;
+    public void setLifeTime(int lifeTime) {
+        this.lifeTime = lifeTime;
     }
 
     public String getColor() {
         return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public abstract String getType();

@@ -12,6 +12,7 @@ public class Apple extends Fruit{
     public double getTotalPrice() {
         return this.getPrice()*this.getWeight();
     }
+
     public String getType() {
         return TYPE;
     }
