@@ -1,4 +1,4 @@
-package by.itacademy.hw7.Task3;
+package by.itacademy.hw7.task3;
 
 public class Apricot extends Fruit{
 

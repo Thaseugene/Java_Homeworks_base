@@ -1,4 +1,4 @@
-package by.itacademy.hw7.Task2;
+package by.itacademy.hw7.task2;
 
 public class KelvinDegree {
 

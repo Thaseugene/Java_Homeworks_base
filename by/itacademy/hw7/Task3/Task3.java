@@ -1,4 +1,4 @@
-package by.itacademy.hw7.Task3;
+package by.itacademy.hw7.task3;
 
 import java.util.Locale;
 

@@ -1,4 +1,4 @@
-package by.itacademy.hw7.Task2;
+package by.itacademy.hw7.task2;
 
 import java.util.Locale;
 import java.util.Scanner;
