@@ -2,7 +2,7 @@ package by.itacademy.hw7.task2;
 
 public class KelvinDegree {
 
-    static final double ABSOLUTE_ZERO = 273.15;
+    private static final double ABSOLUTE_ZERO = 273.15;
 
     protected double value;
 

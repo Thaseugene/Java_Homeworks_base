@@ -46,7 +46,7 @@ public class Student {
         this.averagePoint = averagePoint;
     }
 
-    public int getFellowship () {
+    public int getFellowship() {
         return averagePoint == 5 ? 100 : 80;
     }
 }

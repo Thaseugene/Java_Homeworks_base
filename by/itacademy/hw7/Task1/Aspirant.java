@@ -1,6 +1,6 @@
 package by.itacademy.hw7.task1;
 
-public class Aspirant extends Student{
+public class Aspirant extends Student {
 
     private String scientificWork;
 

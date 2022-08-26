@@ -8,7 +8,7 @@ public class Bouquet {
         this.flowers = flowers;
     }
 
-    public int bouquetLifetime() {
+    public int getBouquetLifetime() {
         int bouquetLifetime = flowers[0].getLifeTime();
         for (int i = 1; i < flowers.length; i++) {
             if (bouquetLifetime < flowers[i].getLifeTime()) {
@@ -19,7 +19,7 @@ public class Bouquet {
     }
 
     //I'm not a florist, and don't know types of hierarchy in bouquets. I've chosen hierarchy by height.
-    public void hierarchyBouquet() {
+    public Flower[] getHierarchyBouquet() {
         String hierarchy = new String("");
         for (int i = 0; i < flowers.length - 1; i++){
             for (int j = 0; j < flowers.length - i - 1; j++) {
@@ -30,9 +30,7 @@ public class Bouquet {
                 }
             }
         }
-        for (Flower fl : flowers) {
-            System.out.println(fl.getType() + " \"" + fl.getName() + "\" " + " with color " + fl.getColor());
-        }
+        return flowers;
     }
 
     public double getTotalCost() {

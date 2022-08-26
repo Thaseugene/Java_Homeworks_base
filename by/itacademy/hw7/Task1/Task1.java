@@ -1,8 +1,11 @@
 package by.itacademy.hw7.task1;
 
+import java.util.Locale;
+
 public class Task1 {
 
     public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
 
         Student studentOne = new Student("John", "Smith", "96011n", 4.9);
         Student studentTwo = new Student("Rachel", "Johnson", "96012g", 5.0);
@@ -15,8 +18,8 @@ public class Task1 {
         Student[] students = {studentOne, studentTwo, aspirantOne, aspirantTwo};
 
         for (Student st : students) {
-            System.out.println(st.getName() + " " + st.getSurname() + " with average mark " + st.getAveragePoint() +
-                    " will get next fellowship - " + st.getFellowship() + " usd.");
+            System.out.printf("%s  with average mark %.1f will get next fellowship - %d usd%n",
+                    st.getSurname(), st.getAveragePoint(), st.getFellowship());
         }
 
     }

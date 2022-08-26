@@ -1,6 +1,6 @@
 package by.itacademy.hw7.task3;
 
-public class Apple extends Fruit{
+public class Apple extends Fruit {
 
     private static final String TYPE = "Apple(s)";
 
@@ -10,7 +10,7 @@ public class Apple extends Fruit{
 
     @Override
     public double getTotalPrice() {
-        return this.getPrice()*this.getWeight();
+        return this.getPrice() * this.getWeight();
     }
 
     public String getType() {

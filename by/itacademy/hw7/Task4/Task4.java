@@ -19,10 +19,12 @@ public class Task4 {
         Bouquet bouquet = new Bouquet(new Flower[]{roseOne, roseTwo, chamomile, tulip, pione});
 
         System.out.println("\nHierarchy of bouquet by its height: ");
-        bouquet.hierarchyBouquet();
+        for (Flower fl : bouquet.getHierarchyBouquet()) {
+            System.out.printf("%s %s with color %s%n", fl.getType(), fl.getName(), fl.getColor());
+        }
 
-        System.out.println("\nTotal cost of the bouquet - " + String.format("%.2f",bouquet.getTotalCost()) + " usd");
+        System.out.printf("\nTotal cost of the bouquet - %.2f usd%n", bouquet.getTotalCost());
 
-        System.out.println("\nThe bouquet is completely going down after - " + bouquet.bouquetLifetime() + " days");
+        System.out.printf("\nThe bouquet is completely going down after - %d days", bouquet.getBouquetLifetime());
     }
 }
