@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Stock implements Printable {
+public class Stock {
 
     private ArrayList<Footwear> footwearList;
     private ArrayList<Clothes> clothesList;
@@ -34,29 +34,6 @@ public class Stock implements Printable {
         }
     }
 
-    @Override
-    public void printFootwearList() {
-        System.out.print("\n");
-        for (Footwear footwear : footwearList) {
-            System.out.println(footwearList.indexOf(footwear) + 1 + ". " + footwear.getType() + " " +
-                    footwear.getProducerName() + " " + footwear.getSize() + " " + footwear.getColor() + " " +
-                    footwear.getMaterial() + ". Price - " + footwear.getPrice() + " usd.");
-        }
-        System.out.print("\n");
-    }
-
-    @Override
-    public void printClothesList() {
-        System.out.print("\n");
-        for (Clothes clothes : clothesList) {
-            System.out.println(clothesList.indexOf(clothes) + 1 + ". " + clothes.getType() + " " +
-                    clothes.getProducerName() + " " + clothes.getSize() + " " + clothes.getColor() + " " +
-                    ". Price - " + clothes.getPrice() + " usd.");
-        }
-        System.out.print("\n");
-    }
-
-
     public ArrayList<Footwear> findFootwearByColor() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter color: ");
@@ -64,7 +41,7 @@ public class Stock implements Printable {
 
         ArrayList<Footwear> findList = new ArrayList<>();
         for (Footwear footwear : footwearList) {
-            if ((footwear.getColor().toLowerCase()).equals(s.toLowerCase())) {
+            if (footwear.getColor().toLowerCase().equals(s.toLowerCase())) {
                 findList.add(footwear);
             }
         }
@@ -77,7 +54,7 @@ public class Stock implements Printable {
         String s = scanner.next();
         ArrayList<Clothes> findList = new ArrayList<>();
         for (Clothes clothes : clothesList) {
-            if ((clothes.getColor().toLowerCase()).equals(s.toLowerCase())) {
+            if (clothes.getColor().toLowerCase().equals(s.toLowerCase())) {
                 findList.add(clothes);
             }
         }
@@ -90,7 +67,7 @@ public class Stock implements Printable {
         String s = scanner.next();
         ArrayList<Footwear> findList = new ArrayList<>();
         for (Footwear footwear : footwearList) {
-            if ((footwear.getSize().toLowerCase()).equals("size " + s.toLowerCase())) {
+            if (footwear.getSize().toLowerCase().equals("size " + s.toLowerCase())) {
                 findList.add(footwear);
             }
         }
@@ -103,7 +80,7 @@ public class Stock implements Printable {
         String s = scanner.next();
         ArrayList<Clothes> findList = new ArrayList<>();
         for (Clothes clothes : clothesList) {
-            if ((clothes.getSize().toLowerCase()).equals("size " + s.toLowerCase())) {
+            if (clothes.getSize().toLowerCase().equals("size " + s.toLowerCase())) {
                 findList.add(clothes);
             }
         }
@@ -138,23 +115,5 @@ public class Stock implements Printable {
             }
         }
         return findList;
-    }
-
-    public void printFootwearFindList (ArrayList<Footwear> arrayList) {
-            System.out.print("\n");
-            for (Footwear footwear : arrayList) {
-                System.out.println(arrayList.indexOf(footwear) + 1 + ". " + footwear.getType() + " " +
-                        footwear.getProducerName() + " " + footwear.getSize() + " " + footwear.getColor() + " " +
-                        footwear.getMaterial() + ". Price - " + footwear.getPrice() + " usd.");
-            }
-            System.out.print("\n");
-
-    }
-    public void printClothesFindList (ArrayList<Clothes> arrayList) {
-            for (Clothes clothes : arrayList) {
-                System.out.println(arrayList.indexOf(clothes) + 1 + ". " + clothes.getType() + " " +
-                        clothes.getProducerName() + " " + clothes.getSize() + " " + clothes.getColor() + " " +
-                        ". Price - " + clothes.getPrice() + " usd.");
-            }
     }
 }

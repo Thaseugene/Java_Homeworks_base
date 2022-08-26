@@ -2,7 +2,7 @@ package by.itacademy.hw8.task3;
 
 import java.util.ArrayList;
 
-public class Cart implements Printable {
+public class Cart {
 
     private ArrayList<Footwear> cartFootwearList;
     private ArrayList<Clothes> cartClothesList;
@@ -28,32 +28,21 @@ public class Cart implements Printable {
         cartClothesList.add(clothes);
     }
 
-    @Override
-    public void printFootwearList() {
-        double totalPrice = 0.0;
-        System.out.print("\n");
-        for (Footwear footwear : cartFootwearList) {
-            System.out.println(cartFootwearList.indexOf(footwear) + 1 + ". " + footwear.getType() + " " +
-                    footwear.getProducerName() + " " + footwear.getSize() + " " + footwear.getColor() + " " +
-                    footwear.getMaterial() + ". Price - " + footwear.getPrice() + " usd.");
-            totalPrice = totalPrice + footwear.getPrice();
+    public double getTotalValueFromClothes (ArrayList<Clothes> arrayList) {
+        double totalValue = 0.0;
+        for (Clothes clothes : arrayList) {
+            totalValue = totalValue + clothes.getPrice();
         }
-        System.out.println("Total cost of this cart: " + String.format("%.2f",totalPrice) + " usd");
-        System.out.print("\n");
+        return totalValue;
     }
 
-    @Override
-    public void printClothesList() {
-        double totalPrice = 0.0;
-        System.out.print("\n");
-        for (Clothes clothes : cartClothesList) {
-            System.out.println(cartClothesList.indexOf(clothes) + 1 + ". " + clothes.getType() + " " +
-                    clothes.getProducerName() + " " + clothes.getSize() + " " + clothes.getColor() + " " +
-                    ". Price - " + clothes.getPrice() + " usd.");
-            totalPrice = totalPrice + clothes.getPrice();
+    public double getTotalValueFromFootwear (ArrayList<Footwear> arrayList) {
+        double totalValue = 0.0;
+        for (Footwear footwear : arrayList) {
+            totalValue = totalValue + footwear.getPrice();
         }
-        System.out.println("Total cost of this cart: " + String.format("%.2f",totalPrice) + " usd");
-        System.out.print("\n");
+        return totalValue;
     }
+
 }
 
