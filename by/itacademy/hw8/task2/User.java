@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class User {
 
+    //Пользователь имеет логин и пароль
     private String userLogin;
     private String userPassword;
 
@@ -12,25 +13,12 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public String getUserLogin() {
-        return userLogin;
-    }
-
-    public void setUserLogin(String userLogin) {
-        this.userLogin = userLogin;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
+    //содержит внутренний класс Query
     public class Query {
+        /* Запрос содержит метод printToLog(), который распечатывает сообщение о том, что пользователь с таким-то
+        логином и паролем отправил запрос */
         public void printToLog() {
-            System.out.println("User - " + userLogin + " with password - " + userPassword + " has a query.");
+            System.out.printf("\nUser - %s with password - %s has a query.", userLogin, userPassword);
         }
     }
 
