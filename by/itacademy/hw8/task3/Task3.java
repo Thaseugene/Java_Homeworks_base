@@ -29,6 +29,9 @@ public class Task3 {
         stock.addInFootList(boots, shoes, shoesOne, bootsOne);
         stock.addInClothesList(dress,jacket,jeans,pants,shirt);
 
+        ArrayList<Clothes> clothesTimeList = new ArrayList<>();
+        ArrayList<Footwear> footwearTimeList = new ArrayList<>();
+
         Cart cart = new Cart(new ArrayList<>(), new ArrayList<>());
 
         System.out.println("Welcome to our console store. Please choose the menu by number");
@@ -39,97 +42,97 @@ public class Task3 {
             selection = scanner.nextInt();
             switch (selection) {
                 case 1: {
-                    ArrayList<Footwear> timeList = stock.findFootwearBySize();
-                    if (timeList.isEmpty()) {
+                    footwearTimeList = stock.findFootwearBySize();
+                    if (footwearTimeList.isEmpty()) {
                         System.out.println("The item hasn't found in stock or incorrect search value\n");
                         break;
                     } else {
-                    printFootwearList(timeList);
+                    printFootwearList(footwearTimeList);
                     int selection1 = scan();
-                    if (selection1 <= 0 || selection1 > timeList.size()) {
+                    if (selection1 <= 0 || selection1 > footwearTimeList.size()) {
                         break;
                     } else {
-                        cart.addCartFootwearList(timeList.get(selection1-1));
+                        cart.addCartFootwearList(footwearTimeList.get(selection1-1));
                     }
                     }
                     break;
                 }
                 case 2: {
-                    ArrayList<Footwear> timeList = stock.findFootwearByColor();
-                    if (timeList.isEmpty()) {
+                    footwearTimeList = stock.findFootwearByColor();
+                    if (footwearTimeList.isEmpty()) {
                         System.out.println("The item hasn't found in stock or incorrect search value\n");
                         break;
                     } else {
-                        printFootwearList(timeList);
+                        printFootwearList(footwearTimeList);
                         int selection1 = scan();
-                        if (selection1 <= 0 || selection1 > timeList.size()) {
+                        if (selection1 <= 0 || selection1 > footwearTimeList.size()) {
                             break;
                         } else {
-                            cart.addCartFootwearList(timeList.get(selection1 - 1));
+                            cart.addCartFootwearList(footwearTimeList.get(selection1 - 1));
                         }
                     }
                     break;
                 }
                 case 3: {
-                    ArrayList<Clothes> timeList = stock.findClothesBySize();
-                    if (timeList.isEmpty()) {
+                    clothesTimeList = stock.findClothesBySize();
+                    if (clothesTimeList.isEmpty()) {
                         System.out.println("The item hasn't found in stock or incorrect search value\n");
                         break;
                     } else {
-                        printClothesList(timeList);
+                        printClothesList(clothesTimeList);
                         int selection1 = scan();
-                        if (selection1 <= 0 || selection1 > timeList.size()) {
+                        if (selection1 <= 0 || selection1 > clothesTimeList.size()) {
                             break;
                         } else {
-                            cart.addCartClothesList(timeList.get(selection1-1));
+                            cart.addCartClothesList(clothesTimeList.get(selection1-1));
                         }
                     }
                     break;
                 }
                 case 4: {
-                    ArrayList<Clothes> timeList = stock.findClothesByColor();
-                    if (timeList.isEmpty()) {
+                    clothesTimeList = stock.findClothesByColor();
+                    if (clothesTimeList.isEmpty()) {
                         System.out.println("The item hasn't found in stock or incorrect search value\n");
                         break;
                     } else {
-                        printClothesList(timeList);
+                        printClothesList(clothesTimeList);
                         int selection1 = scan();
-                        if (selection1 <= 0 || selection1 > timeList.size()) {
+                        if (selection1 <= 0 || selection1 > clothesTimeList.size()) {
                             break;
                         } else {
-                            cart.addCartClothesList(timeList.get(selection1 - 1));
+                            cart.addCartClothesList(clothesTimeList.get(selection1 - 1));
                         }
                     }
                     break;
                 }
                 case 5: {
-                    ArrayList<Footwear> timeList = stock.findFootwearByKeyWord();
-                    if (timeList.isEmpty()) {
+                    footwearTimeList = stock.findFootwearByKeyWord();
+                    if (footwearTimeList.isEmpty()) {
                         System.out.println("The item hasn't found in stock or incorrect search value\n");
                         break;
                     } else {
-                        printFootwearList(timeList);
+                        printFootwearList(footwearTimeList);
                         int selection1 = scan();
-                        if (selection1 <= 0 || selection1 > timeList.size()) {
+                        if (selection1 <= 0 || selection1 > footwearTimeList.size()) {
                             break;
                         } else {
-                            cart.addCartFootwearList(timeList.get(selection1 - 1));
+                            cart.addCartFootwearList(footwearTimeList.get(selection1 - 1));
                         }
                     }
                     break;
                 }
                 case 6: {
-                    ArrayList<Clothes> timeList = stock.findClothesByKeyWord();
-                    if (timeList.isEmpty()) {
+                    clothesTimeList = stock.findClothesByKeyWord();
+                    if (clothesTimeList.isEmpty()) {
                         System.out.println("The item hasn't found in stock or incorrect search value\n");
                         break;
                     } else {
-                        printClothesList(timeList);
+                        printClothesList(clothesTimeList);
                         int selection1 = scan();
-                        if (selection1 <= 0 || selection1 > timeList.size()) {
+                        if (selection1 <= 0 || selection1 > clothesTimeList.size()) {
                             break;
                         } else {
-                            cart.addCartClothesList(timeList.get(selection1 - 1));
+                            cart.addCartClothesList(clothesTimeList.get(selection1 - 1));
                         }
                     }
                     break;
@@ -183,8 +186,8 @@ public class Task3 {
     public static void printClothesList(ArrayList<Clothes> arrayList) {
         for (Clothes clothes : arrayList) {
             System.out.printf("\n %d. %s %s %s %s. Price - %.2f usd.", arrayList.indexOf(clothes) + 1,
-                    clothes.getType(), clothes.getProducerName(), clothes.getSize(), clothes.getColor(),
-                    clothes.getPrice());
+                    clothes.getClass().getSimpleName(), clothes.getProducerName(), clothes.getSize(),
+                    clothes.getColor(), clothes.getPrice());
         }
         System.out.println("\n");
     }
@@ -192,8 +195,8 @@ public class Task3 {
     public static void printFootwearList (ArrayList<Footwear> arrayList) {
         for (Footwear footwear : arrayList) {
             System.out.printf("\n %d. %s %s %s %s %s. Price - %.2f usd.", arrayList.indexOf(footwear) + 1,
-                    footwear.getType(), footwear.getProducerName(), footwear.getSize(), footwear.getColor(),
-                    footwear.getMaterial(), footwear.getPrice());
+                    footwear.getClass().getSimpleName(), footwear.getProducerName(), footwear.getSize(),
+                    footwear.getColor(), footwear.getMaterial(), footwear.getPrice());
         }
         System.out.println("\n");
     }

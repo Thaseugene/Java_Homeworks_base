@@ -2,12 +2,11 @@ package by.itacademy.hw8.task3;
 
 public abstract class Footwear {
 
-    private String producerName;
-    private String color;
-    private String size;
-    private String material;
-
-    private double price;
+    private final String producerName;
+    private final String color;
+    private final String size;
+    private final String material;
+    private final double price;
 
     public Footwear(String producerName, String color, String size, String material, double price) {
         this.producerName = producerName;
@@ -36,7 +35,5 @@ public abstract class Footwear {
     public double getPrice() {
         return price;
     }
-
-    public abstract String getType();
 
 }

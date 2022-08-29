@@ -2,10 +2,9 @@ package by.itacademy.hw8.task3;
 
 public abstract class Clothes {
 
-    private String producerName;
-    private String color;
-    private String size;
-
+    private final String producerName;
+    private final String color;
+    private final String size;
     private double price;
 
     public Clothes(String producerName, String color, String size, double price) {
@@ -31,9 +30,4 @@ public abstract class Clothes {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public abstract String getType();
 }

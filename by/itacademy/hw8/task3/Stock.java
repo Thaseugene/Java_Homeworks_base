@@ -93,7 +93,7 @@ public class Stock {
         String s = scanner.next();
         ArrayList<Footwear> findList = new ArrayList<>();
         for (Footwear footwear : footwearList) {
-            if (footwear.getType().toLowerCase().contains(s.toLowerCase())) {
+            if (footwear.getClass().getSimpleName().toLowerCase().contains(s.toLowerCase())) {
                 findList.add(footwear);
             } else if (footwear.getProducerName().toLowerCase().contains(s.toLowerCase())) {
                 findList.add(footwear);
@@ -108,7 +108,7 @@ public class Stock {
         String s = scanner.next();
         ArrayList<Clothes> findList = new ArrayList<>();
         for (Clothes clothes : clothesList) {
-            if (clothes.getType().toLowerCase().contains(s.toLowerCase())) {
+            if (clothes.getClass().getSimpleName().toLowerCase().contains(s.toLowerCase())) {
                 findList.add(clothes);
             } else if (clothes.getProducerName().toLowerCase().contains(s.toLowerCase())) {
                 findList.add(clothes);

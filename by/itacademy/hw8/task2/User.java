@@ -1,12 +1,10 @@
 package by.itacademy.hw8.task2;
 
-import java.util.Objects;
-
 public class User {
 
     //Пользователь имеет логин и пароль
-    private String userLogin;
-    private String userPassword;
+    private final String userLogin;
+    private final String userPassword;
 
     public User(String userLogin, String userPassword) {
         this.userLogin = userLogin;
@@ -21,5 +19,4 @@ public class User {
             System.out.printf("\nUser - %s with password - %s has a query.", userLogin, userPassword);
         }
     }
-
 }
