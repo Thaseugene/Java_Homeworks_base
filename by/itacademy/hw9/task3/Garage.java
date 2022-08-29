@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Garage {
 
-    private ArrayList<Vehicle> garageList;
+    private final ArrayList<Vehicle> garageList;
 
     public Garage() {
         garageList = new ArrayList<>(2);
@@ -20,19 +20,12 @@ public class Garage {
         return garageList;
     }
 
-    public void removeMotorcycleFromGarage () {
+    public void removeVehicleFromGarage (Vehicle vehicle) {
         for (int i = 0; i < garageList.size(); i++) {
-            if (garageList.get(i).getClass() == Motorcycle.class) {
+            if (garageList.get(i).getClass() == vehicle.getClass()) {
                 garageList.remove(garageList.get(i));
             }
         }
     }
 
-        public void removeCarFromGarage () {
-            for (int i = 0; i < garageList.size(); i++) {
-                if (garageList.get(i).getClass() == Car.class) {
-                    garageList.remove(garageList.get(i));
-                }
-            }
-    }
 }

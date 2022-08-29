@@ -6,11 +6,7 @@ import java.util.Collections;
 /*Реализовать класс Pair, который будет содержать 2 значения любого типа */
 public class Pair {
 
-    public ArrayList<Object> elements;
-
-    public Pair() {
-        elements = new ArrayList<>(2);
-    }
+    private final ArrayList<Object> elements = new ArrayList<>(2);
 
     public void addInitialElements(Object... element) {
         Collections.addAll(elements, element);

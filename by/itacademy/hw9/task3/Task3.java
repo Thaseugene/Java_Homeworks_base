@@ -42,9 +42,9 @@ public class Task3 {
                 case 4: {
                     if (garage.getGarageList().size() == 1 &&
                             garage.getGarageList().get(0).getClass() == Motorcycle.class) {
-                        garage.removeMotorcycleFromGarage();
+                        garage.removeVehicleFromGarage(motorcycle);
                     } else if (garage.getGarageList().size() == 2){
-                        garage.removeMotorcycleFromGarage();
+                        garage.removeVehicleFromGarage(motorcycle);
                     } else {
                         System.out.println("\nThere is no motorcycle in garage\n");
                     }
@@ -52,9 +52,9 @@ public class Task3 {
                 }
                 case 5: {
                     if (garage.getGarageList().size() == 1 && garage.getGarageList().get(0).getClass() == Car.class) {
-                        garage.removeCarFromGarage();
+                        garage.removeVehicleFromGarage(car);
                     } else if (garage.getGarageList().size() == 2){
-                        garage.removeCarFromGarage();
+                        garage.removeVehicleFromGarage(car);
                     } else {
                         System.out.println("\nThere is no car in garage\n");
                     }
@@ -62,8 +62,8 @@ public class Task3 {
                 }
                 case 6: {
                     if (garage.getGarageList().size() > 0) {
-                        garage.removeCarFromGarage();
-                        garage.removeMotorcycleFromGarage();
+                        garage.removeVehicleFromGarage(car);
+                        garage.removeVehicleFromGarage(motorcycle);
                     } else {
                         System.out.println("\nThere are no vehicles in garage\n");
                     }

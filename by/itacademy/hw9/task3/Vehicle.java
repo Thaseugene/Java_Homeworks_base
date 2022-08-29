@@ -2,9 +2,9 @@ package by.itacademy.hw9.task3;
 
 public abstract class Vehicle {
 
-    private int wheelNumber;
-    private String producer;
-    private String engine;
+    private final int wheelNumber;
+    private final String producer;
+    private final String engine;
 
     public Vehicle(int wheelNumber, String producer, String engine) {
         this.wheelNumber = wheelNumber;
