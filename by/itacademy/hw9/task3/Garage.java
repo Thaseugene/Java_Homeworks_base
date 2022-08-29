@@ -6,11 +6,7 @@ import java.util.ArrayList;
 
 public class Garage {
 
-    private final ArrayList<Vehicle> garageList;
-
-    public Garage() {
-        garageList = new ArrayList<>(2);
-    }
+    private final ArrayList<Vehicle> garageList = new ArrayList<>(2);
 
     public void addVehicleInGarage (Vehicle vehicle) {
         garageList.add(vehicle);
