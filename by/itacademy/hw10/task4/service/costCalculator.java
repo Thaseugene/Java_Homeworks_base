@@ -4,7 +4,7 @@ import by.itacademy.hw10.task4.entity.Pet;
 
 import java.util.Map;
 
-public class costCalculator {
+public class CostCalculator {
 
     public static double calculate(Map<String, Pet> map) {
         double value = 0.0;

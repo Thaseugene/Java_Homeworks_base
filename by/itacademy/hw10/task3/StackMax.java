@@ -6,7 +6,7 @@ import java.util.Stack;
 дополнительной функцией max().
  */
 
-public class StackMax extends Stack<Integer> {
+public class StackMax {
 
     public Stack<Integer> stack;
     private int maxValue;
@@ -20,11 +20,11 @@ public class StackMax extends Stack<Integer> {
         if (stack.isEmpty()) {
             maxValue = value;
         }
-            super.push(value);
+            stack.push(value);
         }
 
     public Integer pop() {
-        int value = super.pop();
+        int value = stack.pop();
         if (maxValue < value) {
             maxValue = value;
         }

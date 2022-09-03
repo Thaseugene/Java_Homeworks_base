@@ -15,8 +15,9 @@ public class Main {
 
         Map<String, Integer> map = new TreeMap<>();
 
-        for (String word : text.split("\\s+") )
+        for (String word : text.split("\\s+") ) {
             map.put(word, map.getOrDefault(word, 0) + 1);
+        }
 
         map.forEach((key, value) -> System.out.printf("\nWord %s has repeated - %d time(times)", key, value));
     }

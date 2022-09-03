@@ -3,6 +3,9 @@ package by.itacademy.hw10.task4;
 import by.itacademy.hw10.task4.entity.*;
 import by.itacademy.hw10.task4.service.Console;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class Main {
@@ -27,8 +30,8 @@ public class Main {
         Parrot parrotThree = new Parrot("Golubiny", 84.1);
 
 
-        petShop.addPet(dog, dogOne, dogTwo, dogThree, cat, catOne, catTwo, catThree, parrot, parrotOne, parrotTwo,
-                parrotThree);
+        petShop.addPet(new ArrayList<>(List.of(dog, dogOne, dogTwo, dogThree, cat, catOne, catTwo, catThree, parrot,
+                parrotOne, parrotTwo, parrotThree)));
 
         Console.startConsole(petShop, cart);
     }

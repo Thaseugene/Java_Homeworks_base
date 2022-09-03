@@ -55,7 +55,7 @@ public class Console {
                         System.out.println("Your cart is empty");
                     } else {
                         Printing.printList(cart.getMap());
-                        System.out.printf("With total cost: %.2f usd\n", costCalculator.calculate(cart.getMap()));
+                        System.out.printf("With total cost: %.2f usd\n", CostCalculator.calculate(cart.getMap()));
                         break;
                     }
                     break;

@@ -1,6 +1,7 @@
 package by.itacademy.hw10.task4.entity;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PetShop {
@@ -8,10 +9,10 @@ public class PetShop {
     private final Map<String, Pet> map;
 
     public PetShop() {
-        map = new LinkedHashMap<>();
+        map = new HashMap<>();
     }
 
-    public void addPet(Pet... pets) {
+    public void addPet(List<Pet> pets) {
         for (Pet pet : pets) {
             map.put(pet.getName(), pet);
         }

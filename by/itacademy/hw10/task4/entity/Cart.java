@@ -1,6 +1,6 @@
 package by.itacademy.hw10.task4.entity;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Cart {
@@ -8,7 +8,7 @@ public class Cart {
     private final Map<String, Pet> map;
 
     public Cart() {
-        map = new LinkedHashMap<>();
+        map = new HashMap<>();
     }
 
     public Map<String, Pet> getMap() {

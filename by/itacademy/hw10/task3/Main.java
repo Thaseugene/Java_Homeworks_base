@@ -15,7 +15,7 @@ public class Main {
         myStack.push(5);
 
         System.out.println("Elements that have pushed in the stack: ");
-        while (!myStack.empty()) {
+        while (!myStack.stack.empty()) {
             System.out.println(myStack.pop());
         }
 
