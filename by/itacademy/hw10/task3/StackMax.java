@@ -1,6 +1,6 @@
 package by.itacademy.hw10.task3;
 
-import java.util.Stack;
+import java.util.LinkedList;
 /*
 Реализуйте свой собственный стек (очередь LIFO) со стандартными функциями push() и pop(), а также с
 дополнительной функцией max().
@@ -8,11 +8,11 @@ import java.util.Stack;
 
 public class StackMax {
 
-    public Stack<Integer> stack;
+    public LinkedList<Integer> stack;
     private int maxValue;
 
     public StackMax() {
-        stack = new Stack<>();
+        stack = new LinkedList<>();
         maxValue = 0;
     }
 
@@ -20,11 +20,11 @@ public class StackMax {
         if (stack.isEmpty()) {
             maxValue = value;
         }
-            stack.push(value);
+            stack.addFirst(value);
         }
 
     public Integer pop() {
-        int value = stack.pop();
+        int value = stack.removeFirst();
         if (maxValue < value) {
             maxValue = value;
         }
@@ -34,4 +34,6 @@ public class StackMax {
     public int max() {
         return maxValue;
     }
+
+
 }

@@ -1,7 +1,5 @@
 package by.itacademy.hw10.task3;
 
-import java.util.Stack;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -15,7 +13,7 @@ public class Main {
         myStack.push(5);
 
         System.out.println("Elements that have pushed in the stack: ");
-        while (!myStack.stack.empty()) {
+        while (!myStack.stack.isEmpty()) {
             System.out.println(myStack.pop());
         }
 
