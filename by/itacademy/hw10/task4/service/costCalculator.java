@@ -12,6 +12,6 @@ public class CostCalculator {
             value += pet.getValue().getPrice();
         }
         return value;
-        }
     }
+}
 
