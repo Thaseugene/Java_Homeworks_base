@@ -6,10 +6,10 @@ import java.util.Map;
 public class UserRepository {
 
     private static UserRepository instance;
-    private final Map<String, String> repository;
+    private final Map<String, String> users;
 
     private UserRepository() {
-        repository = new HashMap<>();
+        users = new HashMap<>();
     }
 
     public static UserRepository getInstance() {
@@ -19,7 +19,7 @@ public class UserRepository {
         return instance;
     }
 
-    public Map<String, String> getRepository() {
-        return repository;
+    public Map<String, String> getUsers() {
+        return users;
     }
 }
