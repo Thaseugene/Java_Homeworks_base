@@ -4,6 +4,8 @@ public class TaskFindMin implements Runnable {
 
     private final String[] array;
 
+    private int min;
+
     public TaskFindMin(String[] array) {
         this.array = array;
     }
@@ -11,13 +13,20 @@ public class TaskFindMin implements Runnable {
     @Override
     public void run() {
         synchronized (array) {
-            int min = Integer.parseInt(array[0]);
-            for (int i = 1; i < array.length; i++) {
-                if (Integer.parseInt(array[i]) < min) {
-                    min = Integer.parseInt(array[i]);
+            min = Integer.parseInt(array[0]);
+            for (String s : array) {
+                if (Integer.parseInt(s) < min) {
+                    setMin(Integer.parseInt(s));
                 }
             }
-            System.out.println("Min value - " + min);
         }
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
     }
 }

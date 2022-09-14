@@ -6,15 +6,22 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         String[] numbers = getLinesFromConsole();
         if (containsAllIntegers(numbers)) {
             TaskFindMax taskFindMax = new TaskFindMax(numbers);
             TaskFindMin taskFindMin = new TaskFindMin(numbers);
             Thread threadForMax = new Thread(taskFindMax);
             Thread threadForMin = new Thread(taskFindMin);
+
             threadForMax.start();
             threadForMin.start();
+
+            threadForMax.join();
+            threadForMin.join();
+
+            System.out.println("Max value - " + taskFindMax.getMax());
+            System.out.println("Min value - " + taskFindMin.getMin());
         } else {
             System.out.println("Incorrect input");
         }
