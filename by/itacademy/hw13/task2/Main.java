@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         String[] numbers = getLinesFromConsole();
         if (containsAllIntegers(numbers)) {
             TaskFindMax taskFindMax = new TaskFindMax(numbers);
@@ -17,8 +17,18 @@ public class Main {
             threadForMax.start();
             threadForMin.start();
 
-            threadForMax.join();
-            threadForMin.join();
+
+            try {
+                threadForMax.join();
+            } catch (InterruptedException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                threadForMin.join();
+            } catch (InterruptedException ex) {
+                System.out.println(ex.getMessage());
+            }
+
 
             System.out.println("Max value - " + taskFindMax.getMax());
             System.out.println("Min value - " + taskFindMin.getMin());
