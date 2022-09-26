@@ -19,29 +19,18 @@ public class Consumer implements Runnable {
                 sem.acquire();
                 if (store.getAmountOfProducts() == 1) {
                     sem.release();
-                    Thread.sleep((int) (Math.random() * 1000));
+                    Thread.sleep((int) (Math.random() * 2000));
                 } else {
                     store.setAmountOfProducts(store.getAmountOfProducts() - 1);
                     System.out.printf("Customer has bought product. Amount of products in store now - %s\n",
                             store.getAmountOfProducts());
                     sem.release();
-                    Thread.sleep((int) (Math.random() * 1000));
+                    Thread.sleep((int) (Math.random() * 2000));
                 }
 
             } catch (InterruptedException ex) {
                 System.out.println(ex.getMessage());
             }
-        }
-    }
-
-    public void buy() {
-        store.setAmountOfProducts(store.getAmountOfProducts() - 1);
-        System.out.printf("Customer has bought product. Amount of products in store now - %s\n",
-                store.getAmountOfProducts());
-        try {
-            Thread.sleep((int) (Math.random() * 900));
-        } catch (InterruptedException ex) {
-            System.out.println(ex.getMessage());
         }
     }
 }
