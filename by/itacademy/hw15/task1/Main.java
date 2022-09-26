@@ -5,11 +5,12 @@ import java.util.concurrent.Semaphore;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        Semaphore sem = new Semaphore(1);
+        Semaphore semOne = new Semaphore(1);
+        Semaphore semTwo = new Semaphore(1);
 
         Store store = new Store();
-        Producer producer = new Producer(sem, store);
-        Consumer consumer = new Consumer(sem, store);
+        Producer producer = new Producer(semOne, store);
+        Consumer consumer = new Consumer(semTwo, store);
 
         Thread thread1 = new Thread(producer);
         Thread thread2 = new Thread(consumer);

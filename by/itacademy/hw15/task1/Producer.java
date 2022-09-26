@@ -4,8 +4,8 @@ import java.util.concurrent.Semaphore;
 
 public class Producer implements Runnable {
 
-    Semaphore sem;
-    Store store;
+    private Semaphore sem;
+    private Store store;
 
     public Producer(Semaphore sem, Store store) {
         this.sem = sem;

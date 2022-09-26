@@ -4,8 +4,8 @@ import java.util.concurrent.Semaphore;
 
 public class Consumer implements Runnable {
 
-    Semaphore sem;
-    Store store;
+    private Semaphore sem;
+    private Store store;
 
     public Consumer(Semaphore sem, Store store) {
         this.sem = sem;
