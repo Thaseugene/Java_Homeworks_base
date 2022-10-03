@@ -98,19 +98,12 @@ public class ConsoleCommandsExecutor {
             LocalDateTime dateStart = LocalDateTime.parse(scanner.nextLine(), FORMATTER);
             System.out.println("Enter end date in format (yyyy-MM-dd HH:mm).");
             LocalDateTime dateEnd = LocalDateTime.parse(scanner.nextLine(), FORMATTER);
-            if (userRepository.getUsers().isEmpty()) {
-                System.out.println("Incorrect request or elements not found");
-            } else {
-                userRepository.getUsers().forEach((key, value) -> {
-                    if (value.getRegistrationDate().isAfter(dateStart) &&
-                            value.getRegistrationDate().isBefore(dateEnd)) {
-                        System.out.println(value.getLogin() + " " +
-                                value.getRegistrationDate().format(FORMATTER));
-                    } else {
-                        System.out.println("Incorrect request or elements not found");
-                    }
-                });
-            }
+            userRepository.getUsers().entrySet().stream()
+                    .filter(s -> s.getValue().getRegistrationDate().isAfter(dateStart) &&
+                            s.getValue().getRegistrationDate().isBefore(dateEnd))
+                    .forEach(s -> System.out.println(s.getValue().getLogin() + " "
+                            + s.getValue().getRegistrationDate().format(FORMATTER)));
+
         } catch (DateTimeParseException e) {
             System.out.println("Incorrect date format, please try again");
         }
