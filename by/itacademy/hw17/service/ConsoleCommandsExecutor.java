@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class ConsoleCommandsExecutor {
 
     private final static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    private final RegistrationDatesFinder finder = new RegistrationDatesFinder();
 
     public void tryToSignIn(Signing signing, UserRepository userRepository) {
         Scanner scanner = new Scanner(System.in);
@@ -98,12 +99,7 @@ public class ConsoleCommandsExecutor {
             LocalDateTime dateStart = LocalDateTime.parse(scanner.nextLine(), FORMATTER);
             System.out.println("Enter end date in format (yyyy-MM-dd HH:mm).");
             LocalDateTime dateEnd = LocalDateTime.parse(scanner.nextLine(), FORMATTER);
-            userRepository.getUsers().entrySet().stream()
-                    .filter(s -> s.getValue().getRegistrationDate().isAfter(dateStart) &&
-                            s.getValue().getRegistrationDate().isBefore(dateEnd))
-                    .forEach(s -> System.out.println(s.getValue().getLogin() + " "
-                            + s.getValue().getRegistrationDate().format(FORMATTER)));
-
+            finder.findByDate(userRepository, dateStart, dateEnd);
         } catch (DateTimeParseException e) {
             System.out.println("Incorrect date format, please try again");
         }
