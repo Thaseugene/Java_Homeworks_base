@@ -17,13 +17,17 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ActionChangeOrderStatus {
+    private final OrderRepository orderRep;
 
-    public void changeStatus(MenuPrinter printer, UserRepository userRep, Garage garage, OrderRepository orderRep,
-                             CarMasterRepository carMasterRep, SubmenuOrder submenu, MainMenu mainMenu) {
+    public ActionChangeOrderStatus(OrderRepository orderRep) {
+        this.orderRep = orderRep;
+    }
+
+    public void changeStatus(SubmenuOrder submenu, MainMenu mainMenu) {
 
         if (orderRep.getOrders().isEmpty()) {
             PrintToConsole.print(StandardPhrases.NO_ORDERS.getText());
-            submenu.runSubmenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+            submenu.runSubmenu(submenu, mainMenu);
         } else {
 
             StringBuilder orderStatus = new StringBuilder();
@@ -32,7 +36,7 @@ public class ActionChangeOrderStatus {
             int orderNumber = ConsoleScanAssistant.printAndScanInt(StandardPhrases.CHANGE_ORDER.getText(),
                     orderRep.getOrders());
             if (orderNumber <= 0 || orderNumber > orderRep.getOrders().size()) {
-                getBackToMenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+                getBackToMenu(submenu, mainMenu);
             }
 
             PrintToConsole.print(StandardPhrases.CHOOSE_STAT.getText());
@@ -49,10 +53,9 @@ public class ActionChangeOrderStatus {
         }
     }
 
-    private void getBackToMenu(MenuPrinter printer, UserRepository userRep, Garage garage, OrderRepository orderRep,
-                               CarMasterRepository carMasterRep, SubmenuOrder submenu, MainMenu mainMenu) {
+    private void getBackToMenu(SubmenuOrder submenu, MainMenu mainMenu) {
         PrintToConsole.print(StandardPhrases.TO_MENU.getText());
-        submenu.runSubmenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+        submenu.runSubmenu(submenu, mainMenu);
     }
 
 }

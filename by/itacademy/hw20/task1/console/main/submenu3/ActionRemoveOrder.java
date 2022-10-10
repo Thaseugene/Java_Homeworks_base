@@ -12,12 +12,16 @@ import by.itacademy.hw20.task1.service.OrderService;
 import by.itacademy.hw20.task1.service.enums.StandardPhrases;
 
 public class ActionRemoveOrder {
+    private final OrderRepository orderRep;
 
-    public void removeOrder(MenuPrinter printer, UserRepository userRep, Garage garage, OrderRepository orderRep,
-                            CarMasterRepository carMasterRep, SubmenuOrder submenu, MainMenu mainMenu) {
+    public ActionRemoveOrder(OrderRepository orderRep) {
+        this.orderRep = orderRep;
+    }
+
+    public void removeOrder(SubmenuOrder submenu, MainMenu mainMenu) {
         if (orderRep.getOrders().isEmpty()) {
             PrintToConsole.print(StandardPhrases.NO_ORDERS.getText());
-            submenu.runSubmenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+            submenu.runSubmenu(submenu, mainMenu);
         } else {
 
             int orderNumber = ConsoleScanAssistant.printAndScanInt(StandardPhrases.ORDER_REMOVE.getText(),
@@ -25,7 +29,7 @@ public class ActionRemoveOrder {
 
             if (orderNumber <= 0 || orderNumber > orderRep.getOrders().size()) {
                 PrintToConsole.print(StandardPhrases.TO_MENU.getText());
-                submenu.runSubmenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+                submenu.runSubmenu(submenu, mainMenu);
             }
 
             OrderService.removeOrder(orderRep, orderNumber);

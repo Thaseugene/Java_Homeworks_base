@@ -13,8 +13,13 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ActionAddCar {
+    private final Garage garage;
 
-    public void addCar(Garage garage) {
+    public ActionAddCar(Garage garage) {
+        this.garage = garage;
+    }
+
+    public void addCar() {
 
         StringBuilder type = new StringBuilder();
         AtomicInteger iterator = new AtomicInteger(1);

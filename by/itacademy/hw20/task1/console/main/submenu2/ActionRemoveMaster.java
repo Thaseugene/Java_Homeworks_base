@@ -11,18 +11,21 @@ import by.itacademy.hw20.task1.repositories.UserRepository;
 import by.itacademy.hw20.task1.service.enums.StandardPhrases;
 
 public class ActionRemoveMaster {
+    private final CarMasterRepository carMasterRep;
 
-    public void removeMaster(MenuPrinter printer, UserRepository userRep, Garage garage, OrderRepository orderRep,
-                             CarMasterRepository carMasterRep, SubmenuMaster submenu, MainMenu mainMenu) {
+    public ActionRemoveMaster(CarMasterRepository carMasterRep) {
+        this.carMasterRep = carMasterRep;
+    }
+    public void removeMaster(SubmenuMaster submenu, MainMenu mainMenu) {
         if (carMasterRep.getCarMasters().isEmpty()) {
             PrintToConsole.print(StandardPhrases.NO_MASTERS.getText());
-            submenu.runSubmenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+            submenu.runSubmenu(submenu, mainMenu);
         } else {
             int selection = ConsoleScanAssistant.printAndScanInt(StandardPhrases.CHOOSE_MASTER.getText(),
                     carMasterRep.getCarMasters());
 
             if (selection <= 0 || selection > carMasterRep.getCarMasters().size()) {
-                getBackToMenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+                getBackToMenu(submenu, mainMenu);
             } else {
                 carMasterRep.getCarMasters().remove(selection - 1);
             }
@@ -30,9 +33,8 @@ public class ActionRemoveMaster {
 
     }
 
-    private void getBackToMenu(MenuPrinter printer, UserRepository userRep, Garage garage, OrderRepository orderRep,
-                               CarMasterRepository carMasterRep, SubmenuMaster submenu, MainMenu mainMenu) {
+    private void getBackToMenu(SubmenuMaster submenu, MainMenu mainMenu) {
         PrintToConsole.print(StandardPhrases.TO_MENU.getText());
-        submenu.runSubmenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+        submenu.runSubmenu(submenu, mainMenu);
     }
 }

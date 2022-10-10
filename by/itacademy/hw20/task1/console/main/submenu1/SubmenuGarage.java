@@ -5,29 +5,33 @@ import by.itacademy.hw20.task1.console.service.ConsoleScanAssistant;
 import by.itacademy.hw20.task1.console.service.ListPrinter;
 import by.itacademy.hw20.task1.console.service.MenuPrinter;
 import by.itacademy.hw20.task1.console.service.PrintToConsole;
-import by.itacademy.hw20.task1.repositories.CarMasterRepository;
 import by.itacademy.hw20.task1.repositories.Garage;
-import by.itacademy.hw20.task1.repositories.OrderRepository;
-import by.itacademy.hw20.task1.repositories.UserRepository;
 import by.itacademy.hw20.task1.service.enums.StandardPhrases;
 
 public class SubmenuGarage {
+    private final Garage garage;
+    private final MenuPrinter menuPrinter;
 
-    private ActionRemoveCar actionRemoveCar = new ActionRemoveCar();
-    private ActionAddCar actionAddCar = new ActionAddCar();
+    private final ActionRemoveCar actionRemoveCar;
+    private final ActionAddCar actionAddCar;
 
-    public void runSubmenu(MenuPrinter printer, UserRepository userRep, Garage garage, OrderRepository orderRep,
-                                  CarMasterRepository carMasterRep, SubmenuGarage submenuGarage, MainMenu mainMenu) {
-        int selection = 0;
+    public SubmenuGarage(Garage garage, MenuPrinter menuPrinter) {
+        this.garage = garage;
+        this.menuPrinter = menuPrinter;
+        this.actionRemoveCar = new ActionRemoveCar(garage);
+        this.actionAddCar = new ActionAddCar(garage);
+    }
+
+    public void runSubmenu(SubmenuGarage submenuGarage, MainMenu mainMenu) {
+        int selection;
         do {
-            printer.printSubmenu1();
+            menuPrinter.printSubmenu1();
             selection = ConsoleScanAssistant.scanInt();
             switch (selection) {
-                case 1 -> actionAddCar.addCar(garage);
-                case 2 -> actionRemoveCar
-                        .removeCar(printer, userRep, garage, orderRep, carMasterRep, submenuGarage, mainMenu);
+                case 1 -> actionAddCar.addCar();
+                case 2 -> actionRemoveCar.removeCar(submenuGarage, mainMenu);
                 case 3 -> ListPrinter.printList(garage.getCarRepository());
-                case 4 -> mainMenu.runMenu(printer, userRep, garage, orderRep, carMasterRep, mainMenu);
+                case 4 -> mainMenu.runMenu(mainMenu);
                 default -> PrintToConsole.print(StandardPhrases.TO_MENU.getText());
             }
         } while (selection != 4);

@@ -12,7 +12,13 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ActionAddMaster {
-    public void addMaster(CarMasterRepository carMasterRep) {
+    private final CarMasterRepository carMasterRep;
+
+    public ActionAddMaster(CarMasterRepository carMasterRep) {
+        this.carMasterRep = carMasterRep;
+    }
+
+    public void addMaster() {
 
         StringBuilder type = new StringBuilder();
         AtomicInteger iterator = new AtomicInteger(1);

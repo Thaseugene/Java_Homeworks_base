@@ -1,7 +1,7 @@
 package by.itacademy.hw20.task1.service;
 
-import by.itacademy.hw17.service.exceptrions.WrongPasswordException;
 import by.itacademy.hw20.task1.console.exceptions.WrongLoginException;
+import by.itacademy.hw20.task1.console.exceptions.WrongPasswordException;
 import by.itacademy.hw20.task1.entity.Administrator;
 import by.itacademy.hw20.task1.repositories.UserRepository;
 

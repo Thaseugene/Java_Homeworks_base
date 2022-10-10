@@ -1,7 +1,5 @@
 package by.itacademy.hw9.task3;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 
 public class Garage {

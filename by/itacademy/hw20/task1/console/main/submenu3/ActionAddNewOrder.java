@@ -13,43 +13,50 @@ import by.itacademy.hw20.task1.service.enums.OrderStatusTypes;
 import by.itacademy.hw20.task1.service.enums.StandardPhrases;
 
 public class ActionAddNewOrder {
+    private final Garage garage;
+    private final CarMasterRepository carMasterRep;
+    private final OrderRepository orderRep;
 
-    public void addNewOrder(MenuPrinter printer, UserRepository userRep, Garage garage, OrderRepository orderRep,
-                            CarMasterRepository carMasterRep, SubmenuOrder submenu, MainMenu mainMenu) {
+    public ActionAddNewOrder(Garage garage, CarMasterRepository carMasterRep, OrderRepository orderRep) {
+        this.garage = garage;
+        this.carMasterRep = carMasterRep;
+        this.orderRep = orderRep;
+    }
+
+    public void addNewOrder(SubmenuOrder submenu, MainMenu mainMenu) {
 
         if (carMasterRep.getCarMasters().isEmpty() || garage.getCarRepository().isEmpty()) {
             PrintToConsole.print(StandardPhrases.NO_CARS_MASTERS.getText());
-            submenu.runSubmenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+            submenu.runSubmenu(submenu, mainMenu);
         }
 
         String orderNumber = ConsoleScanAssistant.printAndScanLine(StandardPhrases.CRT_ORDER_NUM.getText());
         int orderTime = ConsoleScanAssistant.printAndScanInt(StandardPhrases.SET_TIME.getText());
 
         if (orderTime == 0) {
-            getBackToMenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+            getBackToMenu(submenu, mainMenu);
         }
 
         int carNumber = ConsoleScanAssistant.printAndScanInt(StandardPhrases.CH_CAR_REPAIR.getText(),
                 garage.getCarRepository());
 
         if (carNumber <= 0 || carNumber > garage.getCarRepository().size()) {
-            getBackToMenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+            getBackToMenu(submenu, mainMenu);
         }
 
         int carMasterNumber = ConsoleScanAssistant.printAndScanInt(StandardPhrases.CH_MASTER_ORDER.getText(),
                 carMasterRep.getCarMasters());
 
         if (carMasterNumber <= 0 || carMasterNumber > carMasterRep.getCarMasters().size()) {
-            getBackToMenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+            getBackToMenu(submenu, mainMenu);
         }
 
         OrderService.addOrder(orderRep, orderNumber, orderTime, OrderStatusTypes.NEW.getStatusType(),
                 garage.getCarRepository().get(carNumber - 1), carMasterRep.getCarMasters().get(carMasterNumber - 1));
     }
 
-    public void getBackToMenu(MenuPrinter printer, UserRepository userRep, Garage garage, OrderRepository orderRep,
-                              CarMasterRepository carMasterRep, SubmenuOrder submenu, MainMenu mainMenu) {
+    public void getBackToMenu(SubmenuOrder submenu, MainMenu mainMenu) {
         PrintToConsole.print(StandardPhrases.TO_MENU.getText());
-        submenu.runSubmenu(printer, userRep, garage, orderRep, carMasterRep, submenu, mainMenu);
+        submenu.runSubmenu(submenu, mainMenu);
     }
 }
