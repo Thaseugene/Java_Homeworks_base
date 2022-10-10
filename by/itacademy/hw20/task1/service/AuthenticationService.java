@@ -4,7 +4,7 @@ import by.itacademy.hw20.task1.console.exceptions.UserNotExistException;
 import by.itacademy.hw20.task1.console.exceptions.WrongPasswordException;
 import by.itacademy.hw20.task1.repositories.UserRepository;
 
-public class Validator {
+public class AuthenticationService {
 
     public static boolean checkLogin(UserRepository userRepository, String login) {
         boolean check = false;

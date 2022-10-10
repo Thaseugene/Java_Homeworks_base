@@ -2,12 +2,10 @@ package by.itacademy.hw20.task1.console.main.submenu3;
 
 import by.itacademy.hw20.task1.console.main.MainMenu;
 import by.itacademy.hw20.task1.console.service.ConsoleScanAssistant;
-import by.itacademy.hw20.task1.console.service.MenuPrinter;
 import by.itacademy.hw20.task1.console.service.PrintToConsole;
 import by.itacademy.hw20.task1.repositories.CarMasterRepository;
 import by.itacademy.hw20.task1.repositories.Garage;
 import by.itacademy.hw20.task1.repositories.OrderRepository;
-import by.itacademy.hw20.task1.repositories.UserRepository;
 import by.itacademy.hw20.task1.service.OrderService;
 import by.itacademy.hw20.task1.service.enums.OrderStatusTypes;
 import by.itacademy.hw20.task1.service.enums.StandardPhrases;
