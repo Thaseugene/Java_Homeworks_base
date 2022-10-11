@@ -36,10 +36,9 @@ public enum StandardPhrases {
     LOG_OUT_COND ("Login is out of conditions or this login has been " +
             "already used. Please try to create login again"),
     PAS_OUT_COND ("Your password is out off conditions, please " +
-            "try to create login and password again"),
-    ;
+            "try to create login and password again");
 
-    private String text;
+    private final String text;
 
     StandardPhrases(String text) {
         this.text = text;
