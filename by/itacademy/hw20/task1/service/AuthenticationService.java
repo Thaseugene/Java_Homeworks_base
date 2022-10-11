@@ -3,6 +3,7 @@ package by.itacademy.hw20.task1.service;
 import by.itacademy.hw20.task1.console.exceptions.UserNotExistException;
 import by.itacademy.hw20.task1.console.exceptions.WrongPasswordException;
 import by.itacademy.hw20.task1.repositories.UserRepository;
+import by.itacademy.hw20.task1.service.enums.StandardPhrases;
 
 public class AuthenticationService {
 
@@ -10,7 +11,7 @@ public class AuthenticationService {
         boolean check = false;
         try {
             if (!userRepository.getUsers().containsKey(login)) {
-                throw new UserNotExistException("Incorrect login");
+                throw new UserNotExistException(StandardPhrases.INC_LOG.getText());
             } else {
                 check = true;
             }
@@ -24,7 +25,7 @@ public class AuthenticationService {
         boolean check = false;
         try {
             if (!password.equals(userRepository.getUsers().get(login).getPassword())) {
-                throw new WrongPasswordException("Incorrect password");
+                throw new WrongPasswordException(StandardPhrases.INC_PAS.getText());
             } else {
                 check = true;
             }

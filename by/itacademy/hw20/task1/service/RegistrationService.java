@@ -4,8 +4,9 @@ import by.itacademy.hw20.task1.console.exceptions.WrongLoginException;
 import by.itacademy.hw20.task1.console.exceptions.WrongPasswordException;
 import by.itacademy.hw20.task1.entity.Administrator;
 import by.itacademy.hw20.task1.repositories.UserRepository;
+import by.itacademy.hw20.task1.service.enums.StandardPhrases;
 
-public class Registration {
+public class RegistrationService {
 
     private static final String REGEX_LOGIN = "^\\w{5,20}$";
     private static final String REGEX_PASSWORD = "^\\w{8,}$";
@@ -18,8 +19,7 @@ public class Registration {
         boolean check = false;
         try {
             if (!login.matches(REGEX_LOGIN) && !userRepository.getUsers().containsKey(login)) {
-              throw new WrongLoginException("\"Login is out of conditions or this login has been " +
-                      "already used. Please try to create login again\"");
+              throw new WrongLoginException(StandardPhrases.LOG_OUT_COND.getText());
             } else {
                 check = true;
             }
@@ -33,8 +33,7 @@ public class Registration {
     boolean check = false;
         try {
         if (!password.matches(REGEX_PASSWORD)) {
-            throw new WrongPasswordException("Your password is out off conditions, please " +
-                    "try to create login and password again");
+            throw new WrongPasswordException(StandardPhrases.PAS_OUT_COND.getText());
         } else {
             check = true;
         }

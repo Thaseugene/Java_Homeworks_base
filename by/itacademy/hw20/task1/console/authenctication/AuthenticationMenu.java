@@ -8,8 +8,8 @@ import by.itacademy.hw20.task1.service.enums.StandardPhrases;
 
 public class AuthenticationMenu {
 
-    private ActionLogIn actionLogIn = new ActionLogIn();
-    private ActionRegister actionRegister = new ActionRegister();
+    private final ActionLogIn actionLogIn = new ActionLogIn();
+    private final ActionRegister actionRegister = new ActionRegister();
 
     public void runMenu(MenuPrinter menuPrinter, UserRepository userRep) {
         boolean isEntered = false;

@@ -30,7 +30,14 @@ public enum StandardPhrases {
     ORDER_NEW_TIME("Enter new time for order (days)"),
     ORDER_REMOVE("Choose order to remove or enter \"0\" to leave last menu:"),
     NO_CARS("There ara no cars in garage"),
-    NO_MASTERS("There are no masters in list");
+    NO_MASTERS("There are no masters in list"),
+    INC_LOG ("Incorrect login"),
+    INC_PAS ("Incorrect password"),
+    LOG_OUT_COND ("Login is out of conditions or this login has been " +
+            "already used. Please try to create login again"),
+    PAS_OUT_COND ("Your password is out off conditions, please " +
+            "try to create login and password again"),
+    ;
 
     private String text;
 
