@@ -35,7 +35,7 @@ public class MainMenu {
                 case 1 -> submenuGarage.runSubmenu(submenuGarage, mainMenu);
                 case 2 -> submenuMaster.runSubmenu(submenuMaster, mainMenu);
                 case 3 -> submenuOrder.runSubmenu(submenuOrder, mainMenu);
-                case 4 -> System.exit(0);
+                case 4 -> Runtime.getRuntime().halt(0);
                 default -> PrintToConsole.print(StandardPhrases.SELECT_INVALID.getText());
             }
         } while (true);

@@ -42,7 +42,7 @@ public class SubmenuOrder {
                 case 4 -> actionChangeTime.changeTime(submenu, mainMenu);
                 case 5 -> ListPrinter.printList(orderRep.getOrders());
                 case 6 -> mainMenu.runMenu(mainMenu);
-                default -> PrintToConsole.print(StandardPhrases.TO_MENU.getText());
+                default -> PrintToConsole.print(StandardPhrases.SELECT_INVALID.getText());
             }
         } while (selection != 6);
     }

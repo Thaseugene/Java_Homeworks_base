@@ -23,7 +23,7 @@ public class AuthenticationMenu {
                     }
                 }
                 case 2 -> actionRegister.tryToRegister(userRep);
-                case 3 -> System.exit(0);
+                case 3 -> Runtime.getRuntime().halt(0);
                 default -> PrintToConsole.print(StandardPhrases.SELECT_INVALID.getText());
             }
         }
