@@ -1,6 +1,6 @@
-package by.itacademy.hw20.task1.service.enums;
+package by.itacademy.hw20.task1.entity.enums;
 
-public enum CarTypes {
+public enum CarType {
 
     SEDAN ("Sedan"),
     HATCHBACK ("Hatchback"),
@@ -11,7 +11,7 @@ public enum CarTypes {
 
     public String carType;
 
-    CarTypes(String carType) {
+    CarType(String carType) {
         this.carType = carType;
     }
 

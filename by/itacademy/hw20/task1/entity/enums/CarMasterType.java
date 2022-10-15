@@ -1,6 +1,6 @@
-package by.itacademy.hw20.task1.service.enums;
+package by.itacademy.hw20.task1.entity.enums;
 
-public enum CarMasterTypes {
+public enum CarMasterType {
     ENGINE_MASTER ("engine master"),
     ELECTRICIAN ("electrician"),
     SUSPENSION_MASTER ("suspension master");
@@ -8,7 +8,7 @@ public enum CarMasterTypes {
 
     public String carMasterType;
 
-    CarMasterTypes(String carMasterType) {
+    CarMasterType(String carMasterType) {
         this.carMasterType = carMasterType;
     }
 

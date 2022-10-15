@@ -1,6 +1,6 @@
-package by.itacademy.hw20.task1.service.enums;
+package by.itacademy.hw20.task1.entity.enums;
 
-public enum OrderStatusTypes {
+public enum OrderStatusType {
 
     NEW ("new"),
     IN_PROGRESS ("in progress"),
@@ -10,7 +10,7 @@ public enum OrderStatusTypes {
 
     private String statusType;
 
-    OrderStatusTypes(String statusType) {
+    OrderStatusType(String statusType) {
         this.statusType = statusType;
     }
 

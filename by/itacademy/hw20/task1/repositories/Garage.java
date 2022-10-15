@@ -1,6 +1,6 @@
 package by.itacademy.hw20.task1.repositories;
 
-import by.itacademy.hw20.task1.service.enums.CarTypes;
+import by.itacademy.hw20.task1.entity.enums.CarType;
 import by.itacademy.hw20.task1.entity.Car;
 
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ public class Garage {
     }
 
     private void init() {
-        carRepository.add(new Car("6603 CT-7", "BMW" , CarTypes.SEDAN.getCarType()));
-        carRepository.add(new Car("2201 MP-7", "Mercedes", CarTypes.HATCHBACK.getCarType()));
-        carRepository.add(new Car("3711 MM-7", "Volvo", CarTypes.SUV.getCarType()));
+        carRepository.add(new Car("6603 CT-7", "BMW" , CarType.SEDAN));
+        carRepository.add(new Car("2201 MP-7", "Mercedes", CarType.HATCHBACK));
+        carRepository.add(new Car("3711 MM-7", "Volvo", CarType.SUV));
     }
 }

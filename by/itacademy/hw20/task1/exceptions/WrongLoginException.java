@@ -1,4 +1,4 @@
-package by.itacademy.hw20.task1.console.exceptions;
+package by.itacademy.hw20.task1.exceptions;
 
 public class WrongLoginException extends RuntimeException{
 

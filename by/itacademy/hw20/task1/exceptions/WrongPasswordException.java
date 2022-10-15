@@ -1,4 +1,4 @@
-package by.itacademy.hw20.task1.console.exceptions;
+package by.itacademy.hw20.task1.exceptions;
 
 public class WrongPasswordException extends RuntimeException{
     private String message;

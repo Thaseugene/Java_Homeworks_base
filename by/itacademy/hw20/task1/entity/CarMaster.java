@@ -1,11 +1,13 @@
 package by.itacademy.hw20.task1.entity;
 
+import by.itacademy.hw20.task1.entity.enums.CarMasterType;
+
 public class CarMaster {
 
     private String name;
-    private String masterType;
+    private CarMasterType masterType;
 
-    public CarMaster(String name, String masterType) {
+    public CarMaster(String name, CarMasterType masterType) {
         this.name = name;
         this.masterType = masterType;
     }
@@ -14,7 +16,7 @@ public class CarMaster {
         return name;
     }
 
-    public String getMasterType() {
+    public CarMasterType getMasterType() {
         return masterType;
     }
 }

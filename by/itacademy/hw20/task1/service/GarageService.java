@@ -4,12 +4,29 @@ import by.itacademy.hw20.task1.entity.Car;
 import by.itacademy.hw20.task1.repositories.Garage;
 
 public class GarageService {
+    private static GarageService instance;
+    private final Garage garage;
 
-    public static void addCarToGarage(Garage garage, Car car) {
+    private GarageService() {
+        this.garage = Garage.getInstance();
+    }
+
+    public static GarageService getInstance() {
+        if(instance == null) {
+            instance = new GarageService();
+        }
+        return instance;
+    }
+
+    public void addCarToGarage(Car car) {
         garage.getCarRepository().add(car);
     }
 
-    public static void removeCarFromGarage(Garage garage, int carNumber) {
+    public void removeCarFromGarage(int carNumber) {
         garage.getCarRepository().remove(carNumber);
+    }
+
+    public Garage getGarage() {
+        return garage;
     }
 }

@@ -1,4 +1,4 @@
-package by.itacademy.hw20.task1.service.enums;
+package by.itacademy.hw20.task1.console.main.enums;
 
 public enum StandardPhrases {
 
@@ -36,7 +36,9 @@ public enum StandardPhrases {
     LOG_OUT_COND ("Login is out of conditions or this login has been " +
             "already used. Please try to create login again"),
     PAS_OUT_COND ("Your password is out off conditions, please " +
-            "try to create login and password again");
+            "try to create login and password again"),
+    TO_MAIN ("To main menu...."),
+    INC_NUM ("Incorrect number");
 
     private final String text;
 

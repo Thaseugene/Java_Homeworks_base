@@ -2,7 +2,7 @@ package by.itacademy.hw20.task1.console.service;
 
 public class MenuPrinter {
 
-    public void printMainMenu() {
+    public static void printMainMenu() {
         System.out.println("\nEnter number to choose menu:");
         System.out.println("[1] Change/add car in garage");
         System.out.println("[2] Add/remove master");
@@ -11,7 +11,7 @@ public class MenuPrinter {
         System.out.print("Insert selection: ");
     }
 
-    public void printAuthMenu() {
+    public static void printAuthMenu() {
         System.out.println("\nEnter number to choose menu:");
         System.out.println("[1] Sign in to Administrator");
         System.out.println("[2] Create new Administrator account");
@@ -19,7 +19,7 @@ public class MenuPrinter {
         System.out.print("Insert selection: ");
     }
 
-    public void printSubmenu1() {
+    public static void printSubmenu1() {
         System.out.println("\nEnter number to choose menu:");
         System.out.println("[1] Add new car");
         System.out.println("[2] Remove car");
@@ -28,7 +28,7 @@ public class MenuPrinter {
         System.out.print("Insert selection: ");
     }
 
-    public void printSubmenu2() {
+    public static void printSubmenu2() {
         System.out.println("\nEnter number to choose menu:");
         System.out.println("[1] Add new master");
         System.out.println("[2] Remove master");
@@ -36,7 +36,7 @@ public class MenuPrinter {
         System.out.println("[4] To main menu");
         System.out.print("Insert selection: ");
     }
-    public void printSubmenu3() {
+    public static void printSubmenu3() {
         System.out.println("\nEnter number to choose menu:");
         System.out.println("[1] Add new order");
         System.out.println("[2] Remove order");

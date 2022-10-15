@@ -1,6 +1,6 @@
 package by.itacademy.hw20.task1.repositories;
 
-import by.itacademy.hw20.task1.service.enums.CarMasterTypes;
+import by.itacademy.hw20.task1.entity.enums.CarMasterType;
 import by.itacademy.hw20.task1.entity.CarMaster;
 
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ public class CarMasterRepository {
     }
 
     public void init() {
-        carMasters.add(new CarMaster("Johny", CarMasterTypes.ENGINE_MASTER.getCarMasterType()));
-        carMasters.add(new CarMaster("Alex", CarMasterTypes.SUSPENSION_MASTER.getCarMasterType()));
-        carMasters.add(new CarMaster("Kyle", CarMasterTypes.ELECTRICIAN.getCarMasterType()));
+        carMasters.add(new CarMaster("Johny", CarMasterType.ENGINE_MASTER));
+        carMasters.add(new CarMaster("Alex", CarMasterType.SUSPENSION_MASTER));
+        carMasters.add(new CarMaster("Kyle", CarMasterType.ELECTRICIAN));
     }
 }

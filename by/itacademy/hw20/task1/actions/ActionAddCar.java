@@ -1,27 +1,27 @@
-package by.itacademy.hw20.task1.console.main.submenu1;
+package by.itacademy.hw20.task1.actions;
 
 import by.itacademy.hw20.task1.console.service.ConsoleScanAssistant;
 import by.itacademy.hw20.task1.console.service.PrintToConsole;
 import by.itacademy.hw20.task1.entity.Car;
-import by.itacademy.hw20.task1.repositories.Garage;
 import by.itacademy.hw20.task1.service.GarageService;
-import by.itacademy.hw20.task1.service.enums.CarTypes;
-import by.itacademy.hw20.task1.service.enums.StandardPhrases;
+import by.itacademy.hw20.task1.entity.enums.CarType;
+import by.itacademy.hw20.task1.console.main.enums.StandardPhrases;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ActionAddCar {
-    private final Garage garage;
+public class ActionAddCar extends Action {
+    private final GarageService garageService;
 
-    public ActionAddCar(Garage garage) {
-        this.garage = garage;
+    public ActionAddCar() {
+        this.garageService = GarageService.getInstance();
     }
 
-    public void addCar() {
+    @Override
+    public void execute() {
 
-        StringBuilder type = new StringBuilder();
+        CarType type = null;
         AtomicInteger iterator = new AtomicInteger(1);
 
         String number = ConsoleScanAssistant.printAndScanLine(StandardPhrases.ENTER_REG_NUM.getText());
@@ -30,14 +30,14 @@ public class ActionAddCar {
 
         PrintToConsole.print(StandardPhrases.CHOOSE_TYP.getText());
 
-        Arrays.stream(CarTypes.class.getEnumConstants())
+        Arrays.stream(CarType.class.getEnumConstants())
                 .forEach(s -> System.out.printf("%s. %s\n", iterator.getAndIncrement(), s.getCarType()));
         try {
-            type.append(((CarTypes)(Array.get(CarTypes.class.getEnumConstants(),
-                    ConsoleScanAssistant.scanInt() - 1))).getCarType());
-        } catch (ArrayIndexOutOfBoundsException ignored) {}
+            type = (CarType) (Array.get(CarType.class.getEnumConstants(), ConsoleScanAssistant.scanInt() - 1));
+        } catch (ArrayIndexOutOfBoundsException ignored) {
+        }
 
-        GarageService.addCarToGarage(garage, (new Car(number,producer,type.toString())));
+        garageService.addCarToGarage((new Car(number, producer, type)));
     }
 
 }
